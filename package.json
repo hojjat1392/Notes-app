@@ -1,14 +1,14 @@
 {
   "dependencies": {
     "chalk": "^2.4.1",
-    "validator": "^10.8.0"
+    "validator": "^10.8.0",
+    "yargs": "^12.0.2"
   },
   "name": "note-app",
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
