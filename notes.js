@@ -18,12 +18,19 @@ const loadNotes = () => {
 const addNote = (title, body) => {
   notes = loadNotes();
 
-  notes.push({
-    title: title,
-    body: body,
+  const duplicateNotes = notes.filter((note) => {
+    return note.title === title;
   });
 
-  saveNotes(notes);
+  if (duplicateNotes.length === 0) {
+    notes.push({
+      title: title,
+      body: body,
+    });
+    saveNotes(notes);
+  } else {
+    console.log(chalk.magenta("This title has already been taken!"));
+  }
 };
 
 const saveNotes = function (notes) {
