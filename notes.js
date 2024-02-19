@@ -14,17 +14,7 @@ const loadNotes = () => {
   }
 };
 
-//add notes function
-const addNote = (title, body) => {
-  notes = loadNotes();
 
-  notes.push({
-    title: title,
-    body: body,
-  });
-
-  saveNotes(notes);
-};
 
 const saveNotes = function (notes) {
   const writeNote = JSON.stringify(notes);
