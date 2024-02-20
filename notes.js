@@ -28,6 +28,7 @@ const addNote = (title, body) => {
       body: body,
     });
     saveNotes(notes);
+    console.log(chalk.green.inverse("The note added successfully!"));
   } else {
     console.log(chalk.magenta("This title has already been taken!"));
   }
@@ -53,7 +54,6 @@ const saveNotes = function (notes) {
   const writeNote = JSON.stringify(notes);
   try {
     fs.writeFileSync("notes.json", writeNote);
-    console.log(chalk.green("mission accomplished!"));
   } catch (e) {
     console.log(chalk.red("Something is wrong!"));
   }
