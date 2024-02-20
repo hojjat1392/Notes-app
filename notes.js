@@ -33,16 +33,33 @@ const addNote = (title, body) => {
   }
 };
 
+//removing
+const removeNote = (title) => {
+  notes = loadNotes();
+
+  const filteredNotes = notes.filter((note) => {
+    return note.title != title;
+  });
+  if (filteredNotes.length != notes.length) {
+    notes = filteredNotes;
+    saveNotes(notes);
+    console.log(chalk.green.inverse("Note Removed!"));
+  } else {
+    console.log(chalk.red.inverse("No note found!"));
+  }
+};
+
 const saveNotes = function (notes) {
   const writeNote = JSON.stringify(notes);
   try {
     fs.writeFileSync("notes.json", writeNote);
-    console.log(chalk.green("New task was added successfully!"));
+    console.log(chalk.green("mission accomplished!"));
   } catch (e) {
-    console.log(chalk.red("Problem to adding tasks!. Something is wrong!"));
+    console.log(chalk.red("Something is wrong!"));
   }
 };
 
 module.exports = {
   addNote: addNote,
+  removeNote: removeNote,
 };
