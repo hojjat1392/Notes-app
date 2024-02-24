@@ -18,9 +18,7 @@ const loadNotes = () => {
 const addNote = (title, body) => {
   notes = loadNotes();
 
-  const duplicateNotes = notes.filter((note) => {
-    return note.title === title;
-  });
+  const duplicateNotes = notes.filter((note) => note.title === title);
 
   if (duplicateNotes.length === 0) {
     notes.push({
@@ -38,9 +36,7 @@ const addNote = (title, body) => {
 const removeNote = (title) => {
   notes = loadNotes();
 
-  const filteredNotes = notes.filter((note) => {
-    return note.title != title;
-  });
+  const filteredNotes = notes.filter((note) => note.title != title);
   if (filteredNotes.length != notes.length) {
     notes = filteredNotes;
     saveNotes(notes);
@@ -50,7 +46,7 @@ const removeNote = (title) => {
   }
 };
 
-const saveNotes = function (notes) {
+const saveNotes = (notes) => {
   const writeNote = JSON.stringify(notes);
   try {
     fs.writeFileSync("notes.json", writeNote);
