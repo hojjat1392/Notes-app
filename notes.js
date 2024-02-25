@@ -46,6 +46,16 @@ const removeNote = (title) => {
   }
 };
 
+const listNotes = () => {
+  const notes = loadNotes()
+
+  console.log(chalk.inverse('Your notes'))
+
+  notes.forEach((note) => {
+      console.log(note.title)
+  })
+}
+
 const saveNotes = (notes) => {
   const writeNote = JSON.stringify(notes);
   try {
@@ -58,4 +68,5 @@ const saveNotes = (notes) => {
 module.exports = {
   addNote: addNote,
   removeNote: removeNote,
+  showTasks: listNotes,
 };

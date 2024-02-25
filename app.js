@@ -46,12 +46,12 @@ yargs.command({
 
 // Create list command
 yargs.command({
-  command: "list",
-  describe: "List your notes",
+  command: 'list',
+  describe: 'List your notes',
   handler() {
-    console.log("Listing out all notes");
-  },
-});
+      note.listNotes()
+  }
+})
 
 // Create read command
 yargs.command({
