@@ -1,1 +1,4 @@
-[{"title":"buy something","body":""},{"title":"go to gym","body":""},{"title":"study programming","body":""}]
+[
+  { "title": "buy someting", "body": "buy banana" },
+  { "title": "go to gym", "body": "go to gym at 9 o'clock" }
+]

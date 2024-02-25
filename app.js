@@ -4,7 +4,7 @@ const yargs = require("yargs");
 const note = require("./notes.js");
 
 // Customize yargs version
-yargs.version("1.1.0");
+yargs.version("2.0.0");
 
 // Create add command
 yargs.command({
@@ -46,19 +46,26 @@ yargs.command({
 
 // Create list command
 yargs.command({
-  command: 'list',
-  describe: 'List your notes',
+  command: "list",
+  describe: "List your notes",
   handler() {
-      note.listNotes()
-  }
-})
+    note.listNotes();
+  },
+});
 
 // Create read command
 yargs.command({
   command: "read",
   describe: "Read a note",
-  handler() {
-    console.log("Reading a note");
+  builder: {
+    title: {
+      describe: "Enter your title to see your note",
+      demandOption: true,
+      type: "string",
+    },
+  },
+  handler(argv) {
+    note.readNote(argv.title);
   },
 });
 
